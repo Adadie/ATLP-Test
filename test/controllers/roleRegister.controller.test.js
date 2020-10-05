@@ -28,6 +28,7 @@ it('should return 200 if userRole created successfully', (done) => {
       if (err) done(err);
       res.should.have.status(200);
       res.body.should.be.a('object');
+      console.log(res);
       done();
     });
 });
