@@ -1,7 +1,13 @@
 /* eslint-disable require-jsdoc */
 import sgMail from '@sendgrid/mail';
 import template from '../helpers/newRequestEmail';
-import { Trip, Request, RequestType, User } from '../database/models';
+import {
+  Trip,
+  Request,
+  RequestType,
+  User,
+  Notification
+} from '../database/models';
 
 class RequestsController {
   static async getRequestTypes(req, res) {
@@ -35,6 +41,11 @@ class RequestsController {
         error: res.__('Can not find your line manager')
       });
     }
+
+    await Notification.create({
+      userId: lineManager.id,
+      requestId: request.id
+    });
 
     const email = template({ user, lineManager });
     if (process.env.NODE_ENV === 'production') {
