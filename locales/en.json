@@ -176,5 +176,7 @@
   "jwt expired": "jwt expired",
   "Accomodation not found": "Accomodation not found",
   "No trips found": "No trips found",
-  "Not found": "Not found"
+  "Not found": "Not found",
+  "Requests fetched succefssfully": "Requests fetched succefssfully",
+  "Request id must be a nudmber": "Request id must be a nudmber"
 }
